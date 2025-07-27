@@ -22,6 +22,5 @@ for %%f in ("%folderpath%\*.zip") do (
 	pause
 	exit
 :errorsize
-echo "%date% %time% Size of %namef% less than 10MB (%size%!B)"	>> %logpath%\error.log
-set !errorlevel!=1
-exit /b
+echo "%date% %time% Size of %namef% less than 10MB (!size!B)"	>> %logpath%\error.log
+exit /b 1
