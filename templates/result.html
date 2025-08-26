@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Result</title>
+</head>
+<body>
+  <h1>{{ case.name }}</h1>
+  {% if skin %}
+  <p>You won: {{ skin.name }}</p>
+  {% else %}
+  <p>No skin won.</p>
+  {% endif %}
+  <a href="/">Back to cases</a>
+</body>
+</html>

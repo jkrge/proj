@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ 'Edit' if case else 'Add' }} Case</title>
+</head>
+<body>
+  <h1>{{ 'Edit' if case else 'Add' }} Case</h1>
+  <form method="post">
+    <label>Name:<input type="text" name="name" value="{{ case.name if case else '' }}" required></label><br>
+    <label>Price:<input type="number" step="0.01" name="price" value="{{ case.price if case else '' }}" required></label><br>
+    <label>Skins (one per line, format: name:chance):</label><br>
+    <textarea name="skins" rows="5" cols="40">{% if case %}{% for skin in case.skins %}{{ skin.name }}:{{ skin.chance }}\n{% endfor %}{% endif %}</textarea><br>
+    <button type="submit">Save</button>
+  </form>
+  <a href="{{ url_for('admin') }}">Back</a>
+</body>
+</html>

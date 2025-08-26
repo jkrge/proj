@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Admin - Manage Cases</title>
+</head>
+<body>
+  <h1>Manage Cases</h1>
+  <a href="{{ url_for('new_case') }}">Add Case</a>
+  <ul>
+    {% for case in cases %}
+    <li>
+      <strong>{{ case.name }} - ${{ '%.2f'|format(case.price) }}</strong>
+      <ul>
+        {% for skin in case.skins %}
+        <li>{{ skin.name }} ({{ skin.chance }})</li>
+        {% endfor %}
+      </ul>
+      <a href="{{ url_for('edit_case', case_id=case.id) }}">Edit</a>
+      <form action="{{ url_for('delete_case', case_id=case.id) }}" method="post" style="display:inline">
+        <button type="submit">Delete</button>
+      </form>
+    </li>
+    {% else %}
+    <li>No cases yet.</li>
+    {% endfor %}
+  </ul>
+  <a href="/">Back to site</a>
+</body>
+</html>
