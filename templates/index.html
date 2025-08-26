@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Case Opening</title>
+</head>
+<body>
+  <h1>Available Cases</h1>
+  <ul>
+    {% for case in cases %}
+    <li>
+      <strong>{{ case.name }} - ${{ '%.2f'|format(case.price) }}</strong>
+      <form action="/open/{{ loop.index0 }}" method="post" style="display:inline">
+        <button type="submit">Open</button>
+      </form>
+    </li>
+    {% else %}
+    <li>No cases yet.</li>
+    {% endfor %}
+  </ul>
+  <a href="/admin">Admin Panel</a>
+</body>
+</html>
