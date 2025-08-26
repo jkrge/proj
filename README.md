@@ -1,36 +1,13 @@
-# JSON Message Generator
+# CS:GO Case Web Template
 
-This project reads a JSON file and uses a text template to generate a message.
+This project is a minimal Flask application that provides a template for managing and opening CS:GO style cases.
 
-## Usage
+## Features
+- Admin panel to add cases with skins, chances, and price.
+- User interface to open cases and see the result.
 
-Run the script with optional `--data` and `--template` arguments:
+## Setup
+1. Install dependencies: `pip install flask`.
+2. Run the app: `python app.py`.
 
-```bash
-python main.py --data path/to/data.json --template path/to/template.txt
-```
-
-By default it uses `data.json` and `template.txt` in the project root.
-
-The template should use Python's `str.format` syntax with keys matching the JSON fields.
-
-Example `data.json`:
-
-```json
-{
-  "name": "Alice",
-  "balance": 250.75
-}
-```
-
-Example `template.txt`:
-
-```
-Hello, {name}! Your balance is ${balance}.
-```
-
-Running the script will output:
-
-```
-Hello, Alice! Your balance is $250.75.
-```
+Data is stored in `cases.json`.
